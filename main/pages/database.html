@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Information</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css" crossorigin="anonymous">
+<head>
+<body>
+    <div class="Container">
+        <div class="nav-wrapper">
+
+            <div class="left-side">
+                <div class="nav-link-wrapper active-nav-link">
+                    <a href="../index.html">Homepage</a>
+                </div>
+                <div class="nav-link-wrapper active-nav-link">
+                    <a href="database.html">Database</a>
+                </div>
+            </div>
+
+            <div class="right-side">
+                <div class="brand">
+                    <h1>TEST</h1>
+                </div>
+            </div>
+        </div>
+
+        <form>
+            <label for="flocid">Location ID</label><br>
+            <input type="text" id="flocidvalue" name="flocidvalue"><br>
+
+            <script crossorigin="use-credentials" src="../ptv.js"></script>
+            <button id="submitinfo" type="button" onclick="requestDatabaseInfo(document.getElementById('flocidvalue').value)">Submit</button>
+            <p id="errorLab"></p>
+        </form>
+</body>

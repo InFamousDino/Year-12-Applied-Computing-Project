@@ -40,10 +40,10 @@ class PTVv3
     }
 }
 
-function requestInfo() {
-    const ptvId = "3003825";
-    const ptvKey = "3d8e3621-33e3-41a9-ac05-27f72390fe84";
+const ptvId = "3003825";
+const ptvKey = "3d8e3621-33e3-41a9-ac05-27f72390fe84";
 
+function requestInfo() {
     const ptv = new PTVv3(ptvId, ptvKey);
 
     const stationINFOTxt = document.getElementById("stationINFO");
@@ -64,6 +64,24 @@ function requestInfo() {
     .catch(error => {
         console.error('API Error:', error);
     });
+}
+
+function requestDatabaseInfo(locationID) {
+    if (locationID > 0) {
+        const ptv = new PTVv3(ptvId, ptvKey)
+
+        ptv.call('/v3/runs/route/'+locationID)
+        .then(data => {
+            console.log('API Response:', data)
+        })
+        .catch(error => {
+            console.error('API Error:', error)
+        })
+
+        document.getElementById("errorLab").innerHTML = ""
+    } else {
+        document.getElementById("errorLab").innerHTML = "Error: Invalid Location ID"
+    }
 }
 
 // 1121 = Melton Station
